@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Activity, Eye, Server, Mail, ExternalLink } from "lucide-react";
 import { Link } from "react-scroll";
 import { resume } from "../data/resume";
+import profileImage from "../assets/profile.jpg";
 
 const dashboardItems = [
   { icon: Shield, label: "Threats Blocked", value: "Active", color: "text-green-400" },
@@ -20,6 +21,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="lg:-mt-28"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               {resume.personal.name}
@@ -65,6 +67,18 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
+            <div className="mx-auto w-64 sm:w-72 lg:w-80 mb-6 text-center">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img
+                  src={profileImage}
+                  alt={resume.personal.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-xl font-bold mt-4">{resume.personal.name}</h3>
+              <p className="text-sm font-medium mt-2 gradient-text">{resume.personal.title}</p>
+            </div>
             <div className="glass-card relative overflow-hidden">
               <div className="absolute top-4 right-4 flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/70" />
